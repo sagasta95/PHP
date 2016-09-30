@@ -28,7 +28,7 @@
         }
     }
     
-        function igualdad2($param1, $param2, $param3, $param4) {
+    function igualdad2($param1, $param2, $param3, $param4) {
         echo "************** === *****************<br>";
         $array = array($param1, $param2, $param3, $param4);
         for ($index = 0; $index < 4; $index++) {
@@ -66,7 +66,7 @@
         }
     }
     
-        function dif2($param1, $param2, $param3, $param4) {
+    function dif2($param1, $param2, $param3, $param4) {
         echo "************** != *****************<br>";
         $array = array($param1, $param2, $param3, $param4);
         for ($index = 0; $index < 4; $index++) {
@@ -85,7 +85,7 @@
         }
     }
     
-        function dif3($param1, $param2, $param3, $param4) {
+    function dif3($param1, $param2, $param3, $param4) {
         echo "************** !== *****************<br>";
         $array = array($param1, $param2, $param3, $param4);
         for ($index = 0; $index < 4; $index++) {

@@ -4,6 +4,5 @@
     for ($index = 0; $index < count($array1); $index++) {
         echo $array1[$index] . " pestas = " .$array1[$index] / $valor_euro . " € = " . number_format($array1[$index] / $valor_euro, 2) . " € <br>";
     }
-?>
 
 
