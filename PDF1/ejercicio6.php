@@ -8,4 +8,3 @@
     echo "Area del sector circular: " . (PI * ($radio * $radio) * $sector)/360 . "<br>";
     //echo "Area del segmento circular: " . (($PI * ($radio * $radio) * $sector)/360)-(($radio * $radio)/2) . "<br>";
     
-?>
