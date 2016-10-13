@@ -8,19 +8,19 @@
         'Los Griffin' => array(
             'padre' => "Peter",
             'madre' => "Lois",
-            'hijos' => array("Chris", "Meg", "Stewie")
+            'hijos' => array("Chris", "Meg", "Stewie",)
         )
     );
     foreach ($familias as $key => $value) {
         echo "Familia " . $key . ": ";
         foreach ($value as $key2 => $value2) {
-            if(true){
+            if(!is_array($value2)){
                 echo $key2 . " " . $familias[$key][$key2] . ", ";
             }
             else{
-                echo $key3 . " ";
-                foreach ($value2 as $key3 => $value3) {
-                    echo $familias[$key][$key2][$key3] . ", ";
+                echo $key2 . " ";
+                for ($i = 0; $i < count($value2); $i++) {
+                    echo $familias[$key][$key2][$i] . ", ";
                 }
             }
         }
