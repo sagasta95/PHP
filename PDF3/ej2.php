@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    <head> 
         <title>Formulaio Web</title>
         <style>
             td{
