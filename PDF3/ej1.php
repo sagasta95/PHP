@@ -10,7 +10,7 @@
     </head>
     <body>
         <form name="input" action="" method="post"><center>
-            <table border="1">
+            <table border="1">  
                 <tr>
                     <td><input type="text" name="n1"></td>
                     <td><input type="text" name="n2"></td>
