@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head> 
-        <title>Cilindro</title>
+        <title>Producto</title>
         <style>
             td{
                 text-align: center;
@@ -12,12 +12,16 @@
         <form name="input" action="" method="post"><center>
             <table border="1">
                 <tr>
-                    <td>Diametro:</td>
-                    <td><input type="text" name="d"></td>
+                    <td>Tienda 1: </td>
+                    <td><input type="text" name="t1"></td>
                 </tr>
                 <tr>
-                    <td>Altura: </td>
-                    <td><input type="text" name="h"></td>
+                    <td>Tienda 2: </td>
+                    <td><input type="text" name="t2"></td>
+                </tr>
+                <tr>
+                    <td>Tienda 3: </td>
+                    <td><input type="text" name="t3"></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" name="calcular" value="Calcular"></td>
@@ -28,9 +32,10 @@
         <table>
         <?php
             if(isset($_POST['calcular'])){
-                $d = $_POST['d'];
-                $h = $_POST['h']; 
-                echo "<tr><td>Volumen: </td><td>" . pi() * pow(($d/2), 2) * $h . " cm3</td></tr>";
+                $t1 = $_POST['t1'];
+                $t2 = $_POST['t2']; 
+                $t3 = $_POST['t3']; 
+                echo "<tr><td>Media: </td><td>" . ($t1 + $t2 + $t3)/3 . " €</td></tr>";
             }
         ?>
         </table></center>
