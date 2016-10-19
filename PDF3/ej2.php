@@ -28,9 +28,13 @@
         <table>
         <?php
             if(isset($_POST['calcular'])){
-                $d = $_POST['d'];
-                $h = $_POST['h']; 
-                echo "<tr><td>Volumen: </td><td>" . pi() * pow(($d/2), 2) * $h . " cm3</td></tr>";
+                if(empty($_POST['d']) || !is_numeric($_POST['d']) || empty($_POST['h']) || !is_numeric($_POST['h'])){
+                    echo "<tr><td>Algun campo esta vacio o no contiene valores numericos.</td></tr>";
+                }else{
+                    $d = $_POST['d'];
+                    $h = $_POST['h']; 
+                    echo "<tr><td>Volumen: </td><td>" . pi() * pow(($d/2), 2) * $h . " cm3</td></tr>";
+                }
             }
         ?>
         </table></center>
