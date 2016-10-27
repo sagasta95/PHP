@@ -3,6 +3,9 @@
     <head> 
         <title>PizzaNet</title>
         <style>
+            body {
+                background-color: lemonchiffon;
+            }
             td{
                 text-align: center;
             }
@@ -16,7 +19,7 @@
         <input type="hidden" name="unidades" value="<?php echo $_POST['unidades'];?>">
         <?php       
             for ($index = 0; $index < $_POST['unidades']; $index++) {
-                echo "<table border='1'>
+                echo "<table border='0'>
                 <tr>
                     <td>Pizza: </td>
                     <td>
@@ -63,7 +66,7 @@
                         </select>
                     </td>
                 </tr>
-            </table><br>";
+            </table><hr>";
             }
         ?>
         <input type="submit" name="start" value="Continuar">
