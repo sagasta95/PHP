@@ -25,7 +25,7 @@
                 </tr>
                 <tr>
                     <td>Telefono: </td>
-                    <td><input type="text" name="tfno" required="required"></td>
+                    <td><input type="number" name="tfno" required="required"></td>
                 </tr>
                 <tr>
                     <td>Nº Pizzas: </td>
