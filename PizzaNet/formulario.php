@@ -25,7 +25,9 @@ $cliente = unserialize($_SESSION['cliente1']);
         </style>
     </head>
     <bodY>
-    <center>
+        <h2>PizzaNet</h2>
+        <hr>
+            <center>
         <div id='i'>
             <form name="form" action="#" method="POST">
                 <table border="1">
@@ -103,18 +105,17 @@ $cliente = unserialize($_SESSION['cliente1']);
                     </td>
                 </tr>
                 <?php
-
-                function remove($cliente, $index) {
-                    $cliente->getPedido()->removeItem($index);
+                if (isset($_POST['a'])) {
+                    $cliente->getPedido()->removeItem(count($cliente->getPedido()->getPizzas()) - 1);
+                    $_SESSION['cliente1'] = serialize($cliente);
                 }
-
                 if (isset($_POST['agregar1'])) {
                     $pizza = new Pizza($id, $_POST['tipo'], $_POST['tamano'], $_POST['masa'], $_POST['extra']);
                     $cliente->getPedido()->addItem($pizza);
                     $pizasadd = $cliente->getPedido()->getPizzas();
 
                     for ($index = 0; $index < count($pizasadd); $index++) {
-                        echo "<tr> <td><b>Pizza " . ($index + 1) . ": </b></td><td><input type='button' name='a' onclick='remove($cliente, $index)'></td></tr>";
+                        echo "<tr> <td><b>Pizza " . ($index + 1) . ": </b></td><td><form action='##' method='post'><input type='submit' value='X' name='a'><form></td></tr>";
                         echo "<tr> <td>Tipo: </td><td>" . $pizasadd[$index]->getTipo() . "</td></tr>";
                         echo "<tr> <td>Tamaño: </td><td>" . $pizasadd[$index]->getTamaño() . "</td></tr>";
                         echo "<tr> <td>Masa: </td><td>" . $pizasadd[$index]->getMasa() . "</td></tr>";
@@ -128,6 +129,22 @@ $cliente = unserialize($_SESSION['cliente1']);
                     }
                     echo "<tr><td colspan='2'>Precio Total: " . $cliente->getPedido()->calcula_total() . " €</td></tr>";
                     $_SESSION['cliente1'] = serialize($cliente);
+                } else {
+                    $pizasadd = $cliente->getPedido()->getPizzas();
+                    for ($index = 0; $index < count($pizasadd); $index++) {
+                        echo "<tr> <td><b>Pizza " . ($index + 1) . ": </b></td><td><form action='' method='post'><input type='hidden' value='" . $index . "' name='indice'><input type='submit' value='X' name='a'><form></td></tr>";
+                        echo "<tr> <td>Tipo: </td><td>" . $pizasadd[$index]->getTipo() . "</td></tr>";
+                        echo "<tr> <td>Tamaño: </td><td>" . $pizasadd[$index]->getTamaño() . "</td></tr>";
+                        echo "<tr> <td>Masa: </td><td>" . $pizasadd[$index]->getMasa() . "</td></tr>";
+                        echo "<tr> <td>Extra: </td><td>";
+                        $extras = $pizasadd[$index]->getExtra();
+                        for ($index1 = 0; $index1 < count($extras); $index1++) {
+                            echo $extras[$index1] . " ";
+                        }
+                        echo"</td></tr>";
+                        echo "<tr> <td>Precio: </td><td>" . $pizasadd[$index]->calculaPrecio() . " €</td><td>";
+                    }
+                    echo "<tr><td colspan='2'>Precio Total: " . $cliente->getPedido()->calcula_total() . " €</td></tr>";
                 }
                 ?>         
             </table>

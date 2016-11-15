@@ -14,7 +14,7 @@ class Pedido {
 
     function removeItem($index) {
         unset($this->pizzas[$index]);
-        sort($this->pizzas);
+        $this->pizzas = array_values($this->pizzas);
     }
 
     function getPizzas() {
